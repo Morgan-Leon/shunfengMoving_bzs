@@ -1,8 +1,10 @@
 package com.lyn.shunfengMoving.model.moving;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
@@ -16,6 +18,8 @@ import com.lyn.shunfengMoving.utill.DateSerializer;
  * @Date 2015年11月30日
  * 
  */
+@Entity
+@Table(name="moving_info")
 public class MovingInfo extends AbstractEntity{
 	
 //	public static final int MAX_LENGTH_NAME = 50;

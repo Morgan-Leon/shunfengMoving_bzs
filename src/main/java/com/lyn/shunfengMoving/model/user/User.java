@@ -4,6 +4,8 @@
 package com.lyn.shunfengMoving.model.user;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
@@ -17,6 +19,8 @@ import com.lyn.shunfengMoving.utill.DateSerializer;
  * @Date 2015年11月30日
  * 
  */
+@Entity
+@Table(name="user")
 public class User extends AbstractEntity{
 	
 	public static final int MAX_LENGTH_DESCRIPTION = 200;
