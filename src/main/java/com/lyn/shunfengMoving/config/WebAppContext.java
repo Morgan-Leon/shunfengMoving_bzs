@@ -21,9 +21,9 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {
-        "com.sexylion.englishExam.common.controller",
-        "com.sexylion.englishExam.todo.controller",
-        "com.sexylion.englishExam.controller"
+        "com.lyn.shunfengMoving.common.controller",
+        "com.lyn.shunfengMoving.todo.controller",
+        "com.lyn.shunfengMoving.controller"
 })
 public class WebAppContext extends WebMvcConfigurerAdapter {
 

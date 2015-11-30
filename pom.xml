@@ -6,7 +6,7 @@
     <packaging>war</packaging>
     <version>0.1</version>
     <name>shunfengMoving REST API</name>
-    <description>shunfengMoving REST API.  A program for bus</description>
+    <description>shunfengMoving REST API.  A program for bzs</description>
     <licenses>
         <license>
             <name>Apache License 2.0</name>

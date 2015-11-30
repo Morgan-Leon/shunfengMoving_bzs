@@ -9,9 +9,9 @@ import org.springframework.context.support.ResourceBundleMessageSource;
  */
 @Configuration
 @ComponentScan(basePackages = {
-		"com.sexylion.englishExam.todo.service",
-		"com.sexylion.englishExam.model",
-		"com.sexylion.englishExam.service"
+		"com.lyn.shunfengMoving.todo.service",
+		"com.lyn.shunfengMoving.model",
+		"com.lyn.shunfengMoving.service"
 		
 })
 @Import({WebAppContext.class, PersistenceContext.class})

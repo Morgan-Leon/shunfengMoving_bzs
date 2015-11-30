@@ -21,7 +21,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"com.sexylion.englishExam.todo.repository","com.sexylion.englishExam.repository"})
+@EnableJpaRepositories(basePackages = {"com.lyn.shunfengMoving.todo.repository","com.lyn.shunfengMoving.repository"})
 public class PersistenceContext {
 
     protected static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
@@ -43,7 +43,7 @@ public class PersistenceContext {
     private static final String PROPERTY_NAME_HIBERNATE_NAMING_STRATEGY = "hibernate.ejb.naming_strategy";
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
 
-    private static final String[] PROPERTY_PACKAGES_TO_SCAN = {"com.sexylion.englishExam.todo.model","com.sexylion.englishExam.model"};
+    private static final String[] PROPERTY_PACKAGES_TO_SCAN = {"com.lyn.shunfengMoving.todo.model","com.lyn.shunfengMoving.model"};
 
     @Resource
     private Environment environment;
