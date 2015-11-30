@@ -77,7 +77,7 @@ public class SingleChoice extends AbstractEntity{
     @Enumerated(EnumType.STRING)
     private SingleOption answer;
     
-    private  long paper;
+    private long paper;
     
     
     @PrePersist
