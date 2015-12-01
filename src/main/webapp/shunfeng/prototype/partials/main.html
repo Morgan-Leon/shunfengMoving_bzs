@@ -26,10 +26,10 @@
   </tr>
   <tr ng-repeat = "item in movingInfo.content">
     <td>
-      {{item.region}}
+      {{item.region | formatRegion}}
     </td>
     <td>
-      {{item.carType}}
+      {{item.carType | formatCarType}}
     </td>
     <td>
       {{item.time}}
@@ -44,8 +44,8 @@
       {{item.status}}
     </td>
     <td>
-      <button type="button" name="button"><a href="#/update/{{item.id}}">处理</a></button>
-      <button type="button" name="button"><a href="#/{{item.id}}">详情</a></button>
+      <a href="{{getHref(item)}}"><button type="button" id="btn{{item.id}}"  name="optBtn" ng-disabled = "isAble(item)" style="color: black;">处理</button></a>
+      <a href="#/{{item.id}}"><button type="button" name="button" style="color: black;">详情</button></a>
     </td>
   </tr>
 </table>

@@ -10,24 +10,38 @@ ctrls.controller('mainController',['$scope','GetMoving',function($scope,GetMovin
     console.log(data);
     $scope.movingInfo = data;
 
+    $scope.isAble = function(iterm){
+      if (iterm.status === "已结束") {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
+    $scope.getHref = function(item){
+      if ($scope.isAble(item)) {
+        return "";
+      }
+      else {
+        return "#/update/"+item.id;
+      }
+    }
+    // $scope.isAble = function(item){
+    //   console.log(item);
+    //   var name = "#btn" + item.id;
+    //
+    // }
+
+    // $("@optBtn").on('click', function(event) {
+    //   event.preventDefault();
+    //   /* Act on the event */
+    //   window.location.href="#/update/"+$scope.movingInfo.content.id;
+    // });
+
+
   })
 }]);
-
-// ctrls.filter('formatRegion',function(){
-//   return function(in){
-    // switch (in) {
-    //   case 1: return "海淀区";
-    //   case 2: return "朝阳区";
-    //   case 3: return "西城区";
-    //   case 4: return "东城区";
-    //   case 5: return "丰田区";
-    //   case 6: return "大兴区";
-    //   case 7: return "石景山";
-    //
-    //   default: return "";
-    // }
-  // };
-// });
 
 ctrls.filter('formatRegion', function () {
     return function (input) {
