@@ -19,3 +19,27 @@ movingServices.factory('AddMoving',['$resource','config',
       {},{}
   );
   }])
+
+  /*
+  Get a Moving
+  */
+  movingServices.factory('GetOneMoving',['$resource','config',
+    function($resource,config){
+      return $resource(config.HOST + "movingInfo/:id",
+        {id:'@_id'},
+        {}
+    );
+    }])
+
+  /*
+  update a Moving
+  */
+  movingServices.factory('UpdateMoving',['$resource','config',
+    function($resource,config){
+      return $resource(config.HOST + "movingInfo/:id",
+        {id:'@_id'},
+        {update:{
+          method:'PUT'
+        }}
+    );
+    }])

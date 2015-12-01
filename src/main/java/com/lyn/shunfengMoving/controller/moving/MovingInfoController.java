@@ -68,5 +68,23 @@ public class MovingInfoController {
 		return  new PageResource<>(pageResult,"page","size");
     }
     
+    @RequestMapping(value = "/movingInfo/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public MovingInfo findOne(@PathVariable("id")Long id) throws NotFoundException {
+    LOGGER.debug("Finding  books in shelf entry with id: {}" );
+		return  service.findById(id);
+    }
+    
+    @RequestMapping(value = "/movingInfo/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public MovingInfo update(@Valid @RequestBody MovingInfo body, @PathVariable("id") Long id) throws NotFoundException {
+        LOGGER.debug("Updating bookshelf with information: {}", body);
+
+        MovingInfo updated = service.update(body,id);
+        LOGGER.debug("Updated the information of a bookshelf to: {}", updated);
+
+        return updated;
+    }
+    
     
 }

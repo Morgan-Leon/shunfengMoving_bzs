@@ -52,7 +52,9 @@ public class MovingInfoRepositoryService implements MovingInfoService{
 	@Override
 	public MovingInfo update(MovingInfo movingInfo, Long movingInfoID) {
 		// TODO Auto-generated method stub
-		return null;
+		MovingInfo model = movingInfoRepo.findOne(movingInfoID);
+		model.setStatus(movingInfo.getStatus());
+		return  movingInfoRepo.save(model);
 	}
 
 	/* (non-Javadoc)
@@ -62,7 +64,7 @@ public class MovingInfoRepositoryService implements MovingInfoService{
 	public MovingInfo findById(Long id) {
 		// TODO Auto-generated method stub
 		
-		return null;
+		return movingInfoRepo.findOne(id);
 	}
 
 	/* (non-Javadoc)

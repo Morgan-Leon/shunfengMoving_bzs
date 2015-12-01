@@ -192,6 +192,7 @@ public class MovingInfo extends AbstractEntity{
 			built.telephone = telephone;
 		}
 		
+		
 		public Builder description(String description) {
             built.description = description;
             return this;
