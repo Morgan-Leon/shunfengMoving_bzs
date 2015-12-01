@@ -13,3 +13,26 @@ table.movingTable td{
     padding-top: 5px;
     padding-bottom: 5px;
 }
+
+table.bookingTable {
+/*    text-align: center;*/
+}
+table.bookingTable th{
+    padding-top: 5px;
+}
+table.bookingTable td{
+    padding-top: 5px;
+}
+table.bookingTable tr{
+    padding-top: 5px;
+}
+table.bookingTable th{
+    font-weight: bold
+}
+
+
+.inputStyle {
+    float: left;
+    margin-left: 100px;
+    margin-bottom: 5px;
+}

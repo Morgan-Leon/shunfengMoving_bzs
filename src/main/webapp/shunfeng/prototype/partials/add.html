@@ -1,0 +1,109 @@
+<!-- Add.html -->
+<table class="bookingTable">
+  <tr>
+    <th>
+      起始地区:
+    </th>
+    <td>
+      <select ng-model="currentRegion" ng-options="value.name for value in region track by value.id">
+    </select>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      所用车型:
+    </th>
+    <td>
+      <input ng-model="carType" ng-click="test()" type="radio" name="optionsRadios" id="optionsRadios1" value=1 >&nbsp;金杯
+      &nbsp;&nbsp;<input ng-model="carType" ng-click="test()" type="radio" name="optionsRadios" id="optionsRadios2" value=2 >&nbsp;皮卡
+      &nbsp;&nbsp;<input ng-model="carType" ng-click="test()" type="radio" name="optionsRadios" id="optionsRadios3" value=3 checked>&nbsp;厢式货车
+      &nbsp;&nbsp;<input ng-model="carType" ng-click="test()" type="radio" name="optionsRadios" id="optionsRadios4" value=4 >&nbsp;1041货车
+    </td>
+  </tr>
+  <tr>
+    <th>
+      搬家日期：
+    </th>
+    <td>
+      <input ng-model="time" type="date" name="time">
+    </td>
+  </tr>
+  <tr>
+    <th>
+      联系人：
+    </th>
+    <td>
+      <input ng-model="contact" type="text" name="contact">
+    </td>
+  </tr>
+  <tr>
+    <th>
+      联系电话：
+    </th>
+    <td>
+      <input type="text" ng-model="areaCode" name="areaCode" style="width: 40px;text-align: right;">-
+      <input type="text" ng-model="telephone" name="telephone">
+    </td>
+  </tr>
+</table>
+<br>
+<br>
+
+<div class="col-md-2">
+</div>
+<div class="col-md-3">
+   <div class="row">
+     <button type="button" name="button" ng-click="test()">预约登记</a></button>
+     <button type="button" name="button" ui-sref = "main">预约查询</a></button>
+   </div>
+</div>
+
+<!-- <div class="row">
+    <div class="">
+      <b>起始地区：</b>
+    </div>
+    <div class="inputStyle">
+      <select>
+      <option value ="1">海淀区</option>
+      <option value ="2">朝阳区</option>
+      <option value="3">西城区</option>
+      <option value="4">东城区</option>
+      <option value="5">丰田区</option>
+      <option value="6">大兴区</option>
+      <option value="7">石景山</option>
+    </select>
+    </div>
+</div>
+
+<div class="row">
+    <b>所用车型：</b>
+    <div class="inputStyle">
+      <input type="radio" name="optionsRadios" id="optionsRadios1" value=1 checked>&nbsp;金杯
+      &nbsp;&nbsp;<input type="radio" name="optionsRadios" id="optionsRadios2" value=2 >&nbsp;皮卡
+      &nbsp;&nbsp;<input type="radio" name="optionsRadios" id="optionsRadios3" value=3 >&nbsp;厢式货车
+      &nbsp;&nbsp;<input type="radio" name="optionsRadios" id="optionsRadios4" value=4 >&nbsp;1041货车
+    </div>
+
+</div>
+
+<div class="row">
+  <b>搬家日期：</b>
+  <div class="inputStyle">
+    <input type="date" name="time" value="">
+  </div>
+</div>
+
+<div class="row">
+  <b>联系人&nbsp;：&nbsp;</b>
+  <div class="inputStyle">
+  <input type="text" name="contact" value="">
+</div>
+</div>
+
+<div class="row">
+  <b>联系电话：</b>
+  <div class="inputStyle">
+  <input type="text" name="areaCode" value="">-
+  <input type="text" name="telephone" value="">
+  <div>
+</div> -->
