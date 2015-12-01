@@ -1,7 +1,4 @@
-/**
- * 
- */
-package com.lyn.shunfengMoving.reposiroty.moving;
+package com.lyn.shunfengMoving.repository.moving;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

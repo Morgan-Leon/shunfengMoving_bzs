@@ -3,11 +3,14 @@ package com.lyn.shunfengMoving.service.moving;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lyn.shunfengMoving.model.moving.MovingInfo;
+import com.lyn.shunfengMoving.repository.moving.MovingInfoRepository;
 
 
 /**
@@ -20,16 +23,27 @@ public class MovingInfoRepositoryService implements MovingInfoService{
 
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(MovingInfoRepositoryService.class);
-	private MovingInfoRepositoryService movingInfoRepo;
+	private MovingInfoRepository movingInfoRepo;
 	
-	
+    @Autowired
+    public MovingInfoRepositoryService(MovingInfoRepository movingInfoRepo)
+    {
+    	this.movingInfoRepo = movingInfoRepo;
+    }
+    
 	/* (non-Javadoc)
 	 * @see com.lyn.shunfengMoving.service.moving.MovingInfoService#add(com.lyn.shunfengMoving.model.moving.MovingInfo)
 	 */
+    @Transactional
 	@Override
 	public MovingInfo add(MovingInfo movingInfo) {
 		// TODO Auto-generated method stub
-		return null;
+    	MovingInfo model = new MovingInfo();
+    	model = MovingInfo.getBuilder(movingInfo.getRegion(), movingInfo.getCarType(), 
+    			movingInfo.getTime(), movingInfo.getContact(), movingInfo.getAreaCode(), movingInfo.getTelephone())
+    			.description(movingInfo.getDescription()).build();
+   
+		return movingInfoRepo.save(model);
 	}
 
 	/* (non-Javadoc)
@@ -47,6 +61,7 @@ public class MovingInfoRepositoryService implements MovingInfoService{
 	@Override
 	public MovingInfo findById(Long id) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -65,7 +80,7 @@ public class MovingInfoRepositoryService implements MovingInfoService{
 	@Override
 	public Page<MovingInfo> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
-		return null;
+		return movingInfoRepo.findAll(pageable);
 	}
 
 }

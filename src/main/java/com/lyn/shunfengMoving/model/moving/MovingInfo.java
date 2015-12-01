@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
@@ -41,7 +43,7 @@ public class MovingInfo extends AbstractEntity{
     @Column(name="contact",nullable = false,length = MAX_LENGTH_CONTACT)
     private String contact;
     
-    @Column(name="area_code",nullable = false,length = MAX_LENGTH_AREA_CODE)
+    @Column(name="area_code",nullable = true,length = MAX_LENGTH_AREA_CODE)
     private String areaCode;
     
     @Column(name="telephone",nullable = false,length = MAX_LENGTH_TELEPHONE)
@@ -51,6 +53,11 @@ public class MovingInfo extends AbstractEntity{
     @Column(nullable = false)
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime modificationTime;
+    
+    @JsonSerialize(using = DateSerializer.class)
+    @Column(nullable = false)
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    private DateTime time;
     
     //1:海淀区 2：朝阳区 3：西城区 4：东城区 5：丰台区 6：大兴区 7：石景山
     @Column(name="region",nullable = false)
@@ -67,6 +74,17 @@ public class MovingInfo extends AbstractEntity{
 	public enum Status {
         未处理,已派车,已结束
     }
+
+	
+
+	public DateTime getTime() {
+		return time;
+	}
+
+
+	public void setTime(DateTime time) {
+		this.time = time;
+	}
 
 
 	public String getDescription() {
@@ -112,11 +130,18 @@ public class MovingInfo extends AbstractEntity{
 	public DateTime getModificationTime() {
 		return modificationTime;
 	}
-
-
-	public void setModificationTime(DateTime modificationTime) {
-		this.modificationTime = modificationTime;
-	}
+	
+    @PrePersist
+    public void prePersist() {
+        DateTime now = DateTime.now();
+        creationTime = now;
+        modificationTime = now;
+    }
+    
+    @PreUpdate
+    public void preUpdate() {
+        modificationTime = DateTime.now();
+    }
 
 
 	public int getRegion() {
@@ -147,5 +172,36 @@ public class MovingInfo extends AbstractEntity{
 	public void setStatus(Status status) {
 		this.status = status;
 	} 
+	
+	public static Builder getBuilder(int region, int carType, DateTime time, String contact, String areaCode, String telephone){
+		return new Builder(region,carType,time,contact, areaCode,telephone);
+	}
+	
+	
+	public static class Builder{
+		
+		private MovingInfo built;
+		
+		public Builder(int region, int carType, DateTime time, String contact, String areaCode, String telephone){
+			built = new MovingInfo();
+			built.region = region;
+			built.carType = carType;
+			built.time = time;
+			built.contact = contact;
+			built.areaCode = areaCode;
+			built.telephone = telephone;
+		}
+		
+		public Builder description(String description) {
+            built.description = description;
+            return this;
+        }
+		
+		public MovingInfo build() {
+			// TODO Auto-generated method stub
+			return built;
+		}
+	}
+	
     
 }
