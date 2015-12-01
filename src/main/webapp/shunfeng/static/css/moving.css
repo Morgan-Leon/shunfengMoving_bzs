@@ -1,0 +1,15 @@
+
+table.movingTable {
+    text-align: center;
+}
+
+table.movingTable tr{
+    /*padding: 5px;*/
+}
+
+table.movingTable td{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

@@ -1,0 +1,49 @@
+<table border="1" class="movingTable" >
+  <tr text-align = 'center'>
+    <td>
+      <b>起始地区</b>
+    </td>
+    <td>
+      <b>所用车型</b>
+    </td>
+    <td>
+      <b>搬家日期</b>
+    </td>
+    <td>
+      <b>联系人</b>
+    </td>
+    <td>
+      <b>联系电话</b>
+    </td>
+    <td>
+      <b>状态</b>
+    </td>
+    <td>
+      <b>操作</b>
+    </td>
+  </tr>
+  <tr ng-repeat = "item in movingInfo.content">
+    <td>
+      {{item.region}}
+    </td>
+    <td>
+      {{item.carType}}
+    </td>
+    <td>
+      {{item.time}}
+    </td>
+    <td>
+      {{item.contact}}
+    </td>
+    <td>
+      {{item.areaCode}}{{item.telephone}}
+    </td>
+    <td>
+      {{item.status}}
+    </td>
+    <td>
+      <button type="button" name="button">处理</button>
+      <button type="button" name="button">详情</button>
+    </td>
+  </tr>
+</table>

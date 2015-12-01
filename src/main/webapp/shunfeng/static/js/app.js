@@ -20,5 +20,18 @@ routeApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
           templateUrl: "partials/main.html",
           controller: "mainController"
       })
+      //add page
+      .state('add', {
+          url: '/',
+          templateUrl: "partials/add.html",
+          controller: "addController"
+      })
+      //update page
+      .state('update', {
+          url: '/',
+          templateUrl: "partials/update.html",
+          controller: "updateController"
+      })
+
 
 }]);
