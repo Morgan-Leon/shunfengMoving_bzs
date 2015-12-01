@@ -28,7 +28,7 @@ routeApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
       })
       //update page
       .state('update', {
-          url: '/',
+          url: '/update/:id',
           templateUrl: "partials/update.html",
           controller: "updateController"
       })

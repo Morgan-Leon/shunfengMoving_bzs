@@ -37,7 +37,7 @@ ctrls.controller('addController',['$scope','AddMoving'
       AddMoving.save(moving,function(data){
         alert("成功");
       },function(error){
-        alert("失败")；
+        alert("失败");
       })
 
     }
