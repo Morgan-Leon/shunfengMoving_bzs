@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lyn.shunfengMoving.common.model.PageResource;
 import com.lyn.shunfengMoving.model.moving.MovingInfo;
+import com.lyn.shunfengMoving.model.moving.MovingInfo.Status;
 import com.lyn.shunfengMoving.service.moving.MovingInfoService;
 
 /**
@@ -77,10 +78,10 @@ public class MovingInfoController {
     
     @RequestMapping(value = "/movingInfo/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public MovingInfo update(@Valid @RequestBody MovingInfo body, @PathVariable("id") Long id) throws NotFoundException {
-        LOGGER.debug("Updating bookshelf with information: {}", body);
+    public MovingInfo update(@RequestParam("status") Status status, @PathVariable("id") Long id) throws NotFoundException {
+        LOGGER.debug("Updating bookshelf with information: {}", status);
 
-        MovingInfo updated = service.update(body,id);
+        MovingInfo updated = service.update(status,id);
         LOGGER.debug("Updated the information of a bookshelf to: {}", updated);
 
         return updated;

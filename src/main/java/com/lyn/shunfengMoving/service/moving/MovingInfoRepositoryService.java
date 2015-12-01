@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lyn.shunfengMoving.model.moving.MovingInfo;
+import com.lyn.shunfengMoving.model.moving.MovingInfo.Status;
 import com.lyn.shunfengMoving.repository.moving.MovingInfoRepository;
 
 
@@ -50,10 +51,10 @@ public class MovingInfoRepositoryService implements MovingInfoService{
 	 * @see com.lyn.shunfengMoving.service.moving.MovingInfoService#update(com.lyn.shunfengMoving.model.moving.MovingInfo, java.lang.Long)
 	 */
 	@Override
-	public MovingInfo update(MovingInfo movingInfo, Long movingInfoID) {
+	public MovingInfo update(Status status, Long movingInfoID) {
 		// TODO Auto-generated method stub
 		MovingInfo model = movingInfoRepo.findOne(movingInfoID);
-		model.setStatus(movingInfo.getStatus());
+		model.setStatus(status);
 		return  movingInfoRepo.save(model);
 	}
 

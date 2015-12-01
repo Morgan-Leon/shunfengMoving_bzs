@@ -5,7 +5,7 @@
       起始地区:
     </th>
     <td>
-      {{moving.region}}
+      {{moving.region | formatRegion}}
     </td>
   </tr>
   <tr>
@@ -13,7 +13,7 @@
       所用车型:
     </th>
     <td>
-      {{moving.carType}}
+      {{moving.carType | formatCarType}}
     </td>
   </tr>
   <tr>
@@ -45,10 +45,10 @@
       状态修改
     </th>
     <td>
-      <select>
-      <option value="0">未处理</option>
-      <option value="2">已派车</option>
-      <option value="3">已结束</option>
+      <select name="stateSelect" ng-model="currentState">
+      <option value="未处理">未处理</option>
+      <option value="已派车">已派车</option>
+      <option value="已结束">已结束</option>
     </select>
     </td>
   </tr>
@@ -61,7 +61,7 @@
 </div>
 <div class="col-md-3">
    <div class="row">
-     <button type="button" name="button" ui-sref = "add">处理登记信息</a></button>
+     <button type="button" name="button" ng-click="update()">处理登记信息</a></button>
      <button type="button" name="button" ui-sref = "main">预约查询</a></button>
    </div>
 </div>

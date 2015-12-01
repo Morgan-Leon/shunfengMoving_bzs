@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.lyn.shunfengMoving.model.moving.MovingInfo;
+import com.lyn.shunfengMoving.model.moving.MovingInfo.Status;
 
 
 /**
@@ -18,7 +19,7 @@ public interface MovingInfoService {
 	
     public MovingInfo add(MovingInfo movingInfo);
 
-    public MovingInfo update(MovingInfo movingInfo,Long movingInfoID);
+    public MovingInfo update(Status status,Long movingInfoID);
 
     public MovingInfo findById(Long id);
 

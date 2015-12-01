@@ -36,8 +36,8 @@ movingServices.factory('AddMoving',['$resource','config',
   */
   movingServices.factory('UpdateMoving',['$resource','config',
     function($resource,config){
-      return $resource(config.HOST + "movingInfo/:id",
-        {id:'@_id'},
+      return $resource(config.HOST + "movingInfo/:id?status:=stauts",
+        {id:'@_id',status:'@_status'},
         {update:{
           method:'PUT'
         }}
