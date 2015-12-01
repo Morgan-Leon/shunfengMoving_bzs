@@ -1,14 +1,43 @@
 //mainCtrl.js
 var ctrls = angular.module('nourControllers', ['nourConfig', 'ngResource',
-    'movingServices']);
+    'movingServices','pageableServices']);
 
-ctrls.controller('mainController',['$scope','GetMoving',function($scope,GetMoving){
+ctrls.controller('mainController',['$scope','$stateParams','GetMoving','Pageable',function($scope,$stateParams,GetMoving,Pageable){
 
   $scope.name = "查询";
 
-  GetMoving.get({page:0,size:3},function(data){
-    console.log(data);
-    $scope.movingInfo = data;
+  // GetMoving.get({page:0,size:3},function(data){
+  //   console.log(data);
+  //   $scope.movingInfo = data;
+  //
+  //   }
+    $scope.movingInfo;
+
+    $scope.createPageable = function (){
+        $scope.searchPageable = new Pageable();
+
+        $scope.searchPageable.size = 4;
+        $scope.searchPageable.page = 1;
+
+        $scope.searchPageable.arguments="";
+        // Set the startPage and length of number page array
+        // console.log($scope.searchArguments);
+
+        $scope.searchPageable.pageNumbers.startPage = 1;
+        $scope.searchPageable.pageNumbers.content.length = 4;
+        // Set the placeholder elements
+        $scope.searchPageable.placeHolders.placeHoldersElement = {title: ""};
+
+        // Build the pageable object
+        $scope.searchPageable.build(GetMoving);
+
+        $scope.searchPageable.showPage($stateParams.page === undefined ? 1 : $stateParams.page);
+        console.log($scope.searchPageable);
+        $scope.movingInfo = $scope.searchPageable.entities;
+    }
+
+    $scope.createPageable();
+
 
     $scope.isAble = function(iterm){
       if (iterm.status === "已结束") {
@@ -40,7 +69,7 @@ ctrls.controller('mainController',['$scope','GetMoving',function($scope,GetMovin
     // });
 
 
-  })
+  // })
 }]);
 
 ctrls.filter('formatRegion', function () {

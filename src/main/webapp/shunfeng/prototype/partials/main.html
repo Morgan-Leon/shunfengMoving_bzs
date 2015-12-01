@@ -48,6 +48,20 @@
       <a href="#/{{item.id}}"><button type="button" name="button" style="color: black;">详情</button></a>
     </td>
   </tr>
+  <tr>
+    <td colspan="7">
+      <!-- Custom page number goes here -->
+          <a ng-click="searchPageable.showPage(searchPageable.page - 1)">上一页</a>
+          <span ng-repeat="pageNumber in searchPageable.pageNumbers.content">
+              <a class="custom-page-number"
+                  ng-class="{'custom-page-number-current': pageNumber === searchPageable.page}"
+                  ng-click="searchPageable.showPage(pageNumber)">
+                  {{pageNumber}}
+              </a>
+          </span>
+          <a ng-click="searchPageable.showPage(searchPageable.page + 1)">下一页</a>
+    </td>
+  </tr>
 </table>
 
 <br>
