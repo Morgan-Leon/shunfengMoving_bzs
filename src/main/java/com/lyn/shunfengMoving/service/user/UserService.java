@@ -13,4 +13,6 @@ import com.lyn.shunfengMoving.model.user.User;
  */
 public interface UserService {
 	public User findById(Long id);
+	
+	public User findByName(String name);
 }

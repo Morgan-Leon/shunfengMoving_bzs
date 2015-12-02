@@ -12,5 +12,7 @@ import com.lyn.shunfengMoving.model.user.*;
  * 
  */
 public interface UserRepository extends JpaRepository<User,Long>{
-
+	
+	public User findByName(String name);
+	
 }

@@ -32,6 +32,12 @@ routeApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvide
           templateUrl: "partials/update.html",
           controller: "updateController"
       })
+      //detail page
+      .state('detail', {
+          url: '/detail/:id',
+          templateUrl: "partials/detail.html",
+          controller: "detailController"
+      })
 
 
 }]);
