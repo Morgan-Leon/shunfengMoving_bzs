@@ -5,6 +5,8 @@ package com.lyn.shunfengMoving.model.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
@@ -74,6 +76,19 @@ public class User extends AbstractEntity{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+    @PrePersist
+    public void prePersist() {
+        DateTime now = DateTime.now();
+        creationTime = now;
+        modificationTime = now;
+    }
+    
+    @PreUpdate
+    public void preUpdate() {
+        modificationTime = DateTime.now();
+    }
+
 
 
 }

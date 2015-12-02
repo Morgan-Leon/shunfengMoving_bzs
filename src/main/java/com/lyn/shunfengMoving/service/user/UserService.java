@@ -4,6 +4,8 @@
 package com.lyn.shunfengMoving.service.user;
 
 
+import javassist.NotFoundException;
+
 import com.lyn.shunfengMoving.model.user.User;
 
 /**
@@ -14,5 +16,7 @@ import com.lyn.shunfengMoving.model.user.User;
 public interface UserService {
 	public User findById(Long id);
 	
-	public User findByName(String name);
+	public User findByName(String name) throws NotFoundException;
+	
+	public User add(User user)throws Exception;
 }

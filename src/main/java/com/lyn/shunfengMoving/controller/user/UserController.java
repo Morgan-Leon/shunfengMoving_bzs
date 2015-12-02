@@ -3,6 +3,7 @@
  */
 package com.lyn.shunfengMoving.controller.user;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,7 +15,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value="/api")
 public class UserController {
-	
-	
 
 }
